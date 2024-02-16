@@ -5,7 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define POOL_SIZE 5 // this will be a larger value later
+#define POOL_SIZE 10 // controls the maximum amount of possible questions
 
 typedef struct
 {
@@ -34,22 +34,37 @@ int main()
 
     int valid;
 
-    Question question_pool[POOL_SIZE] = // note to self: the # of questions cannot exceed the value of POOL_SIZE
+    Question question_pool[POOL_SIZE] = 
     {
-        { "When did 'Sonic the Hedgehog' release for the SEGA Genesis?",
+        { "When did 'Sonic the Hedgehog' release for the SEGA Genesis?", //1
             { "1989", "1990", "1994", "1991" }, 4
         },
-        { "What is the acronym for the colors of the rainbow?",
+        { "What is the acronym for the colors of the rainbow?", //2
             { "RGB", "RBGCMYK", "ROYGBIV", "CMYK" }, 3
         },
-        { "What color is a giraffe's tounge?",
+        { "What color is a giraffe's tounge?", //3
             { "Gray", "Black", "Blue", "Red" }, 2
         },
-        { "Which of the following is the national beverage of 20 of the United States?",
+        { "Which of the following is the national beverage of 20 of the United States?", //4
             { "Coca-Cola", "Water", "Milk", "Root Beer" }, 3
         },
-        { "Which of the United States came first?",
+        { "Which of the United States came first?", //5
             { "Delaware", "Pennsylvania", "New Jersey", "Georgia" }, 1
+        },
+        { "How many keys are typically on a full-size keyboard?", //6
+            { "126", "104", "90", "106" }, 2
+        },
+        { "When was the television invented?", //7
+            { "1920s", "1910s", "1940s", "1950s" }, 1
+        },
+        { "Which of the following is not celebrated on March 14th?", //8
+            { "White Day", "Genius Day", "Pi Day", "St. Patricks Day" }, 4
+        },
+        { "What is the national animal of Scotland?", //9
+            { "Dragon", "Sheep", "Goat", "Unicorn" }, 4
+        },
+        { "How many hearts does an octopus have?", //10
+            { "1", "2", "3", "4" }, 3
         },
     };
 
@@ -90,6 +105,9 @@ int main()
         questions[random_index] = questions[num_questions - 1];
         num_questions--;
     }
+
+    printf("You made it to the end!\n");
+    printf("Your score is %d/%d", score, POOL_SIZE);
 
     return 0;
 }
