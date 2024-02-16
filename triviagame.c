@@ -1,13 +1,4 @@
 // A simple trivia game
-
-// To-Do:
-// Come up with a way to pick 10 questions from a larger pool
-// Show question number while it is on screen
-// Add a timer to each question
-// Put "Press Enter to continue" prompt between questions
-// Clear out the screen between questions
-// Possibly find a way to randomize answer order
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
